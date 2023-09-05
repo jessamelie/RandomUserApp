@@ -1,14 +1,21 @@
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          RANDOM USER APP
-        </p>
-      </header>
+    <div>
+      <div className="title">
+        <h1>Welcome to Random User App</h1>
+        <BrowserRouter>
+          <Routes>
+            <Route path="*" element={<Homepage />}></Route>
+            <Route path="/" element={<Homepage />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
