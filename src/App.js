@@ -5,8 +5,6 @@ import Homepage from "./pages/Homepage";
 const App = () => {
   return (
     <div>
-      <div className="title">
-        <h1>Welcome to Random User App</h1>
         <BrowserRouter>
           <Routes>
             <Route path="*" element={<Homepage />}></Route>
@@ -14,7 +12,6 @@ const App = () => {
           </Routes>
         </BrowserRouter>
       </div>
-    </div>
   );
 };
 
