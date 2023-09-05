@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Cards from "./Cards";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -22,13 +23,8 @@ const Users = () => {
       <div className="randomUsers">
         <h2>Random Users</h2>
       </div>
-      {users.map((person) => (
-        <div className="usersCard">
-            <h1>{person.picture.medium}</h1>
-            <h1>{person.name.first}</h1>
-            <h1>{person.name.last}</h1>
-            <h1>{person.location.country}</h1>
-        </div>
+      {users.map((user, index) => (
+        <Cards key={index} user={user}/>
       ))}
     </div>
   );
