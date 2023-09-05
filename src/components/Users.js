@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const Users = () => {
-  const [user, setUser] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -9,7 +9,7 @@ const Users = () => {
         const responseURL = await fetch("https://randomuser.me/api/");
         const data = await responseURL.json();
         console.log(data);
-        setUser(data.results)
+        setUsers(data.results);
       } catch (error) {
         console.log(error);
       }
@@ -18,8 +18,18 @@ const Users = () => {
   });
 
   return (
-    <div className="randomUsers">
-      <h2>Random Users</h2>
+    <div>
+      <div className="randomUsers">
+        <h2>Random Users</h2>
+      </div>
+      {users.map((person) => (
+        <div className="usersCard">
+            <h1>{person.picture.medium}</h1>
+            <h1>{person.name.first}</h1>
+            <h1>{person.name.last}</h1>
+            <h1>{person.location.country}</h1>
+        </div>
+      ))}
     </div>
   );
 };
