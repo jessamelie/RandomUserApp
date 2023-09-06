@@ -1,8 +1,21 @@
- .userCard{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 15px;
-    padding: 15px;
-    text-align: center; 
-  }
+.userCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  padding: 15px;
+  text-align: center;
+  background: rgb(238, 243, 253);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
+  border-radius: 15px;
+  transition: all 0.3s ease-out;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+.userCard:hover {
+  transform: translateY(-20px) scale(1.005) translateZ(0);
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.335);
+  opacity: 0.80;
+  z-index: 2;
+}

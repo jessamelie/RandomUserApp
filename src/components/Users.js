@@ -3,7 +3,8 @@ import Cards from "./Cards";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const [filterGender, setFilterGender] = useState(""); // État du filtre par genre
+  const [filterGender, setFilterGender] = useState("");
+
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -21,6 +22,7 @@ const Users = () => {
     fetchUsers();
   }, []);
 
+  
   const filteredUsers = users.filter((user) => {
     if (filterGender === "") {
       return true;
@@ -40,9 +42,9 @@ const Users = () => {
           onChange={(e) => setFilterGender(e.target.value)}
           value={filterGender}
         >
-          <option value="">Tous</option>
-          <option value="male">Homme</option>
-          <option value="female">Femme</option>
+          <option value="">Everybody</option>
+          <option value="male">Men</option>
+          <option value="female">Women</option>
         </select>
       </div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
