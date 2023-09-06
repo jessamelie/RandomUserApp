@@ -2,4 +2,30 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 10px;
 }
+
+.randomUsers{
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+}
+
+.crushSearching{
+    display: flex;
+    justify-content: center;
+}
+.genderFilter{
+    margin: 1px;
+}
+
+.genderSelector{
+    margin: 2px;
+    border: none;
+}
+
+.ageButton{
+    margin: 2px;
+    border: none;
+}
+

@@ -53,22 +53,23 @@ const Users = () => {
   return (
     <div>
       <div className="randomUsers">
-        <h2>Random Users</h2>
+        <h3>Who will be your next crush? 💘</h3>
       </div>
-      <div>
-        <label>Filtrer par genre: </label>
-        <select
+      <div className="crushSearching">
+        <label className="genderFilter"> I want to see </label>
+        <select className="genderSelector"
           onChange={(e) => setFilterGender(e.target.value)}
           value={filterGender}
         >
-          <option value="">Everybody</option>
-          <option value="male">Men</option>
-          <option value="female">Women</option>
+          <option value=""> Everybody </option>
+          <option value="male"> Men </option>
+          <option value="female"> Women </option>
         </select>
-
-        <button onClick={handleSort}>
-          Trier par âge ({sortAge === "asc" ? "Décroissant" : "Croissant"})
+by
+        <button className="ageButton" onClick={handleSort}>
+          ({sortAge === "asc" ? "decreasing" : "creasing"})
         </button>
+        age
       </div>
 
       <div className="userContainer">
