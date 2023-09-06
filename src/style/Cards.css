@@ -14,7 +14,6 @@
 .userCard:hover {
   transform: translateY(-20px) scale(1.005) translateZ(0);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.335);
-  opacity: 0.80;
+  opacity: 0.8;
   z-index: 2;
 }
-
