@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
+import '../style/Users.css';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [filterGender, setFilterGender] = useState("");
-  const [sortAge, setSortAge] = useState("ascending");
+  const [sortAge, setSortAge] = useState("asc");
 
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const Users = () => {
       }
     };
     fetchUsers();
-  }, []);
+  },[]);
 
   
   const filteredUsers = users.filter((user) => {
@@ -34,12 +35,13 @@ const Users = () => {
 
   const handleSort = () => {
     setSortAge (sortAge === "asc" ? "desc" : "asc");
+
   };
 
   const sortedUsers = users.sort((a,b) => {
     const ageA = parseInt(a.dob.age);
     const ageB = parseInt(b.dob.age);
-    if (sortAge === "ascending") {
+    if (sortAge === "asc") {
       return ageA - ageB;
     } else {
       return ageB - ageA;
@@ -63,13 +65,13 @@ const Users = () => {
           <option value="male">Men</option>
           <option value="female">Women</option>
         </select>
-        
+
         <button onClick={handleSort}>
-          Trier par âge ({sortAge === "asc" ? "Croissant" : "Décroissant"})
+          Trier par âge ({sortAge === "asc" ? "Décroissant" : "Croissant"})
         </button>
       </div>
 
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div className="userContainer">
         {filteredUsers.map((user, index) => (
           <Cards key={index} user={user} />
         ))}
