@@ -7,16 +7,16 @@ const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const responseURL = await fetch("https://randomuser.me/api/");
+        const responseURL = await fetch("https://randomuser.me/api/?results=50");
         const data = await responseURL.json();
         console.log(data);
-        setUsers(data.results);
+        setUsers(data.results.slice(0,10));
       } catch (error) {
         console.log(error);
       }
     };
     fetchUsers();
-  });
+  },[]);
 
   return (
     <div>
