@@ -4,6 +4,7 @@ import Cards from "./Cards";
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [filterGender, setFilterGender] = useState("");
+  const [sortAge, setSortAge] = useState("ascending");
 
 
   useEffect(() => {
@@ -31,6 +32,22 @@ const Users = () => {
     }
   });
 
+  const handleSort = () => {
+    setSortAge (sortAge === "asc" ? "desc" : "asc");
+  };
+
+  const sortedUsers = users.sort((a,b) => {
+    const ageA = parseInt(a.dob.age);
+    const ageB = parseInt(b.dob.age);
+    if (sortAge === "ascending") {
+      return ageA - ageB;
+    } else {
+      return ageB - ageA;
+    }
+  });
+
+
+
   return (
     <div>
       <div className="randomUsers">
@@ -46,7 +63,12 @@ const Users = () => {
           <option value="male">Men</option>
           <option value="female">Women</option>
         </select>
+        
+        <button onClick={handleSort}>
+          Trier par âge ({sortAge === "asc" ? "Croissant" : "Décroissant"})
+        </button>
       </div>
+
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {filteredUsers.map((user, index) => (
           <Cards key={index} user={user} />
