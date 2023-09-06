@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardMedia, CardContent, Typography } from "@mui/material";
+import { Card, CardMedia, CardContent, Typography, Button } from "@mui/material";
 import "../style/Cards.css";
 
 const Cards = ({ user }) => {
@@ -23,7 +23,15 @@ const Cards = ({ user }) => {
             <h6>{user.dob.age}</h6>
           </Typography>
           <h5>{user.location.country}</h5>
-          <button>Contact</button>
+
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => window.location.href = `mailto:${user.email}`}
+          >
+            Let's talk
+          </Button>
+
         </CardContent>
       </Card>
     </div>
@@ -31,3 +39,4 @@ const Cards = ({ user }) => {
 };
 
 export default Cards;
+
