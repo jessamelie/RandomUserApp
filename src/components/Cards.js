@@ -6,10 +6,10 @@ const Cards = ({ user }) => {
   return (
     <div className="cardsContainer">
       <div className="userCard">
-        <Card sx={{ maxWidth: 400 }}>
+        <Card sx={{ maxWidth: 800 }}>
           <CardMedia
             component="img"
-            height="250"
+            height="320"
             image={user.picture.large}
             alt="user profile picture"
           />
